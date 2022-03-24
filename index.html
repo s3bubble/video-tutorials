@@ -16,11 +16,18 @@
             margin: auto;
         }
     </style>
+    <script type="text/javascript">
+        window.s3bubbleGlobals = {
+            drm: {
+                authenticationXml: 'PEtleU9TQXV0aGVudGljYXRpb25YTUw+CjxEYXRhPgogIDxHZW5lcmF0aW9uVGltZT4yMDIyLTAzLTI0IDE4OjM2OjQzLjA3NjwvR2VuZXJhdGlvblRpbWU+CiAgPEV4cGlyYXRpb25UaW1lPjIwMjItMDQtMjMgMTg6MzY6NDMuMDc2PC9FeHBpcmF0aW9uVGltZT4KICA8VW5pcXVlSWQ+ZmMwOTkwMTljYWYwYWU0NjA2OWUwNzgxZmZmYjAzYWQ8L1VuaXF1ZUlkPgogIDxSU0FQdWJLZXlJZD5wcml2YXRlX2tleTwvUlNBUHViS2V5SWQ+CiAgPFdpZGV2aW5lUG9saWN5IGZsX0NhblBsYXk9InRydWUiIGZsX0NhblBlcnNpc3Q9ImZhbHNlIiAvPgogIDxXaWRldmluZUNvbnRlbnRLZXlTcGVjIFRyYWNrVHlwZT0iSEQiPgogICAgPFNlY3VyaXR5TGV2ZWw+MTwvU2VjdXJpdHlMZXZlbD4KICA8L1dpZGV2aW5lQ29udGVudEtleVNwZWM+CiAgPEZhaXJQbGF5UG9saWN5IHBlcnNpc3RlbnQ9ImZhbHNlIiAvPgogIDxMaWNlbnNlIHR5cGU9InNpbXBsZSIgLz4KPC9EYXRhPgo8U2lnbmF0dXJlPkJZdGZlbEdpZ2IwYUNYWXRBWnhmbDB2TUpReU9WOGFoc0JscTBHeS96L3M5ckQrTjBubmErWSttc2RlVW5vcXIrYnZDZnNKVnFxcVFmdXJzZ3BLOWE0VTZRaGFwV0FQdGVSWTdNV0hxMFRMdmk1YjdGZ2V1NzBkOGQ0ZTBnTFhTWHF1cTJXK2FVS2dMR0NzOE1WZEMwNmQvd1lDazVUMkl0TTZsZzgyYitsSG9RVzdqRk0rUGs0VlJNUzhZSWhRTlV5c1RnVEw5OTRWUEFTRWxQRWFkd05hNWwxSWVTa3h3YnRXemZIaUZHN1BiMDVOczR6WXlsWlJ4LzRJN2l5WE5uQkFtMW43OG1LZmtUQlhFemU1VGlJbU5nQ3ZDd1hlMzdweXJkUGZURXVpVS9BcXc0aSs5Q0NFOXo2aDdPSlFKUjhUVTBTWHNyTzlPbnpKMkU1VFhwVW5RcThQWWF1NGlHVzdDc0lnQkJlUHIrZjlkMFp3V3lrd2tLeldycldrbU1TLzNBMWhRcUJkZnVMTFdZRGZSVUU0N1hDcmpmcGdqTjJuVnIxN3UvWnJvZjlUOVUrcFo3L1JVWnlQd1NmU0ZMODg2SjBpamRlYkhoaTU5WndjSUIxS2taVnpzcEJQTVJ4aU9HaGxDclF5b2I2NWpIMGxaU2o0eS9sOWZzYlVqejdCVFdQL0lCK2Y5cXFUbWI3YnpSR0s1TjY2YzB6TzcyZFZxS01RendWdmt4TTBqejE2MmRZcWx5M3dqYmVUNDZSYlRtTXAwR25wNWphTk9sczRmcEMwS1d1NWJxWXhBWDJ1TkFhQ2pyZEFLRk91U2lZMy9lTFpDeVlLaUZFUkxsU2ZsNHVieWdZcFI5eTlqOFc3aXEwMm9KalpoTnp1Y0R6NXhaRm5uOFNrPTwvU2lnbmF0dXJlPgo8L0tleU9TQXV0aGVudGljYXRpb25YTUw+',
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="wrapper">
         <h1>S3Bubble Demo Video</h1>
-        <div class="s3bmedia" data-type="audio" data-code="r95dse"></div>
+        <div id="player"></div>
     </div>
     <script src="https://unpkg.com/@s3bubble/player@latest/dist/js/s3bubble.min.js"></script>
     <script src="https://utteranc.es/client.js"
@@ -29,6 +36,22 @@
         theme="github-light"
         crossorigin="anonymous"
         async>
+</script>
+<script>
+    s3bubble('player').drm({
+        drm:{
+            widevine: {
+                code: 'r99iwk',
+                keysystem: 'com.widevine.alpha',
+                license: 'https://wv-keyos.licensekeyserver.com/'
+            },
+            playready: {
+                code: 'r99iwk',
+                keysystem: 'com.microsoft.playready',
+                license: 'https://pr-keyos.licensekeyserver.com/core/rightsmanager.asmx'
+            },
+        }
+    }); 
 </script>
 </body>
 </html>
